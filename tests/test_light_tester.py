@@ -5,30 +5,19 @@
 
 
 import unittest
+import sys
+sys.path.append('.')
+import pytest
 from click.testing import CliRunner
-
 from light_tester import light_tester
 from light_tester import cli
+from light_tester import utils
 
-
-class TestLight_tester(unittest.TestCase):
-    """Tests for `light_tester` package."""
-
-    def setUp(self):
-        """Set up test fixtures, if any."""
-
-    def tearDown(self):
-        """Tear down test fixtures, if any."""
-
-    def test_000_something(self):
-        """Test something."""
-
-    def test_command_line_interface(self):
-        """Test the CLI."""
-        runner = CliRunner()
-        result = runner.invoke(cli.main)
-        assert result.exit_code == 0
-        assert 'light_tester.cli.main' in result.output
-        help_result = runner.invoke(cli.main, ['--help'])
-        assert help_result.exit_code == 0
-        assert '--help  Show this message and exit.' in help_result.output
+def test_command_line_interface():
+    ifile = "/Users/elenalanigan/softeng/data/test.txt"
+    N, instructions = utils.parseFile(ifile)
+    assert N is not None
+    
+def test_read_file():
+    ifile = "/Users/elenalanigan/softeng/data/test.txt"
+    N, instructions = utils.parseFile(ifile)

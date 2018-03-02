@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """Console script for light_tester."""
-
+import sys
 import click
 
 
@@ -10,9 +10,8 @@ import click
 def main(input=None):
     """Console script for led_tester."""
     print("input", input)
-    return 0
+    return main(input)
 
 
 if __name__ == "__main__":
-    import sys
     sys.exit(main())
