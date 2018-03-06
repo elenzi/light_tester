@@ -1,6 +1,9 @@
 """Console script for led_tester."""
 import sys
 import click
+from light_tester import utils
+from light_tester import led_tester
+
 click.disable_unicode_literals_warning = True
 
 @click.command()
@@ -9,9 +12,9 @@ def main(input=None):
     """Console script for led_tester."""
     print("input", input)
 
-    N, instructions = parseFile(input)
+    N, instructions = utils.parseFile(input)
 
-    ledTester = LEDTester(N)
+    ledTester = led_tester.LEDtester(N)
 
     for instruction in instructions:
         ledTester.apply(instruction)
