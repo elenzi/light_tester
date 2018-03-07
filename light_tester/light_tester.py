@@ -1,6 +1,7 @@
 """Console script for led_tester."""
 import sys
 import click
+
 import utils
 import led_tester
 
