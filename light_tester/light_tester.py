@@ -1,8 +1,8 @@
 """Console script for led_tester."""
 import sys
 import click
-from light_tester import utils
-from light_tester import led_tester
+import utils
+import led_tester
 
 click.disable_unicode_literals_warning = True
 
