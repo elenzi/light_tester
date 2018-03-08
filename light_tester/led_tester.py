@@ -61,16 +61,6 @@ class LEDTester:
         print(self.T)      
         return self.T
 
-    
-def main():
-    ifile = "/Users/elenalanigan/softeng/data/test.txt"
-    N, instructions = utils.parseFile(ifile)
-    matrix = LEDTester(N, instructions)
-    print("Occupied: ", matrix.operations())
-    #matrix.turnon()#
 
-if __name__=='__main__':
-    main()
-    
         
     
