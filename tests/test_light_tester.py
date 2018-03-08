@@ -1,5 +1,6 @@
 
 from light_tester import utils
+from light_tester import led_tester
 
 
 def test_command_line_interface():
@@ -20,3 +21,11 @@ def test_read_http():
     N, instructions = utils.parseFile(ifile)
     assert N == 1000
     assert instructions is not None
+    
+def testForLEDS():
+    ifile = "/Users/elenalanigan/softeng/data/test.txt"
+    N, instructions = led_tester.LEDtester(ifile)
+    N, instructions = led_tester.LEDtester(ifile)
+    assert N == 1000
+    assert instructions == ['turn on 0,0 through 9,9\n', 'turn off 0,0 through 9,9\n', 'switch 0,0 through 9,9\n', 'turn off 0,0 through 9,9\n', 'turn on 2,2 through 7,7']
+

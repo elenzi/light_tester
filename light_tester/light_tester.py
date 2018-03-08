@@ -2,8 +2,8 @@
 import sys
 import click
 
-import utils
-import led_tester
+from light_tester import utils
+from light_tester import led_tester
 
 click.disable_unicode_literals_warning = True
 
@@ -20,7 +20,7 @@ def main(input=None):
     for instruction in instructions:
         ledTester.apply(instruction)
 
-    print('#occupied: ', ledTester.countOccupied()) 
+    print('#LightsOn: ', ledTester.countOccupied()) 
     return 0
 
 

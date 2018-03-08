@@ -1,59 +1,76 @@
 import re
+import utils 
 
-class LEDtester:
-    
+class LEDTester:
     lights = None
     
     def __init__(self, N, instructions):
-        self.lights = [[False]*N for _ in range(N)]
+        self.N = N
+        self.lights = [[False]*self.N for _ in range(self.N)]
         self.instructions = instructions
-        self.operations(self)
+        self.command = ""
+        self.start = None
+        self.end = None
         
-    def operations(self, instructions):
+        #self.apply(self)
+#         print(self.lights)
+        
+    def operations(self):
         for i in self.instructions:
-            cmd, start, end = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*") 
-            self.apply(self, cmd, start, end)
-        
-    def apply(self, cmd, start, end):
-        if cmd == "turn on":
-            self.turnon(self, start, end)
-            
-        elif cmd == 'turn off':
-            self.turnoff(self, start, end)
-            
-        elif cmd == 'switch':
-            self.switch(self, start, end)
-            
-    def turnon(self,start, end):
-        for i in range (len(self.lights)):
-            for j in range (len(self.lights)):
-                if self.lights[i][j] == False:
-                    self.lights[i][j] = True
-                           
-    def turnoff(self, start, end):
-        for i in range (len(self.lights)):
-            for j in range (len(self.lights)):
-                if self.lights[i][j] == True:
-                    self.lights[i][j] = False
-                           
-    def switch(self, start, end):
-        for i in range (len(self.lights)):
-            for j in range (len(self.lights)):
-                if self.lights[i][j] == False:
-                    self.lights[i][j] = True       
-                else:
-                    self.lights[i][j] == True
-                    self.lights[i][j] = False
+            pattern = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*") 
+            matched = pattern.match(i)
+            self.command = matched.group(1)
+            self.start = matched.group(2), matched.group(3)
+            self.end = matched.group(4), matched.group(5)
+            if self.command == "turn on":
+                self.turnon(self.command, self.start, self.end)
+            elif self.command == 'turn off':
+                self.turnoff(self.command, self.start, self.end)
+            elif self.command == 'switch':
+                self.switch(self.command, self.start, self.end)
+            self.countOccupied(self.start, self.end)
 
-    def countOccupied(self, T):
+    def turnon(self, command, start, end):
+        if self.command == "turn on":
+            for i in range (self.start[0],self.end[0]+1):
+                for j in range (self.start[1],self.end[1]+1):
+                    self.lights[i][j] = True
+                   
+                           
+    def turnoff(self, command, start, end):
+        if self.command == 'turn off':
+            for i in range (self.start[0],self.end[0]+1):
+                for j in range (self.start[1],self.end[1]+1):
+                    self.lights[i][j] = False
+                           
+       
+    def switch(self, command, start, end):
+        if command == 'switch':
+            for i in range (self.start[0],self.end[0]+1):
+                for j in range (self.start[1],self.end[1]+1):
+                    self.lights[i][j] = not j
+
+    def countOccupied(self, start, end):
         self.T = 0
-        
-        for i in range (len(self.lights)):
-            for j in range (len(self.lights)):
+        #self.F = 0
+        for i in range (self.start[0],self.end[0]+1):
+            for j in range (self.start[1],self.end[1]+1):
                 if self.lights[i][j] == True:
-                    T += 1
+                    self.T +=1
+        #self.F = self.N * self.N - self.T                          
+        print(self.T)      
         return self.T
 
+    
+def main():
+    ifile = "/Users/elenalanigan/softeng/data/test.txt"
+    N, instructions = utils.parseFile(ifile)
+    matrix = LEDTester(N, instructions)
+    print("Occupied: ", matrix.operations())
+    #matrix.turnon()#
+
+if __name__=='__main__':
+    main()
     
         
     
