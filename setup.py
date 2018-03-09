@@ -8,9 +8,9 @@ setup(name="light_tester",
     author="Elena Lanigan",
     author_email="elenalanigan93@gmail.com",
     license="GPL3",
-    packages=['light_tester"'],
+    packages=['light_tester'],
     entry_points={
-        'console_scripts':['Count Lights=light_tester.light_tester:main']
+        'console_scripts':['countLights=light_tester.light_tester:main']
         }   
     
 )

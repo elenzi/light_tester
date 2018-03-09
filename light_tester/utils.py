@@ -6,7 +6,7 @@ def parseFile(input):
     if input.startswith('http'):
         N, instructions = None, []
         with urllib.request.urlopen(input) as f:
-            N = int(f.readline())
+            N = int(f.readline().decode("utf-8"))           
             for line in f.readlines():
                 instructions.append(line)
         return N, instructions

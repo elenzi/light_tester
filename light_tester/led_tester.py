@@ -12,9 +12,6 @@ class LEDTester:
         self.countLights = self.countOccupied()
         print("Number of lights on: ", self.countLights)
         
-        #self.apply(self)
-#         print(self.lights)
-        
     def operations(self):
         for i in self.instructions:
             pattern = re.compile(".*(turn on|turn off|switch)\s*([+-]?\d+)\s*,\s*([+-]?\d+)\s*through\s*([+-]?\d+)\s*,\s*([+-]?\d+).*") 
@@ -34,18 +31,13 @@ class LEDTester:
         if self.command == "turn on":
             for i in range(int(self.start[0]),int(self.end[0])+1):
                 for j in range(int(self.start[1]),int(self.end[1])+1):
-                    self.lights[i][j] = True
-                    #self.countTon += 1
-        #return(self.countTon)
-            #return(countTon)
-                   
+                    self.lights[i][j] = True  
                            
     def turnoff(self, command, start, end):
         if self.command == 'turn off':
             for i in range (int(self.start[0]),int(self.end[0])+1):
                 for j in range (int(self.start[1]),int(self.end[1])+1):
-                    self.lights[i][j] = False
-                           
+                    self.lights[i][j] = False     
        
         
     def switch(self, command, start, end):
@@ -63,15 +55,7 @@ class LEDTester:
         #self.F = self.N * self.N - self.T                          
         return T
 
-    
-# def main():
-#     ifile = "/Users/elenalanigan/softeng/data/test.txt"
-#     N, instructions = utils.parseFile(ifile)
-#     matrix = LEDTester(N, instructions)
-#     #matrix.turnon()#
-# 
-# if __name__=='__main__':
-#     main()
+
     
         
     
