@@ -1,6 +1,6 @@
-===========
-lighttester
-===========
+============
+light_tester
+============
 
 
 Light tester for Science Centre.
@@ -22,11 +22,3 @@ The lights are either on or off.
 
 This application's job is to test the lights. 
 
-
-Credits
--------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage

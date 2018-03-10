@@ -26,22 +26,22 @@ def test_read_http():
     assert N == 1000
     assert instructions is not None
     
-    def test_turn_on(self):
-        ifile = "/Users/elenalanigan/softeng/data/test.txt"
-        N, instructions = utils.parseFile(ifile)
-        assert N is not None
-        assert instructions is not None
+def test_turn_on(self):
+    ifile = "/Users/elenalanigan/softeng/data/test.txt"
+    N, instructions = utils.parseFile(ifile)
+    assert N is not None
+    assert instructions is not None
 
-    def test_turn_off(self):
-        ifile = "/Users/elenalanigan/softeng/data/test.txt""
-        N, instructions = utils.parseFile(ifile)
-        assert N is not None
-        assert instructions is not None
+def test_turn_off(self):
+    ifile = "/Users/elenalanigan/softeng/data/test.txt""
+    N, instructions = utils.parseFile(ifile)
+    assert N is not None
+    assert instructions is not None
 
-    def test_switch(self):
-        ifile = "/Users/elenalanigan/softeng/data/test.txt""
-        N, instructions = utils.parseFile(ifile)
-        assert N is not None
-        assert instructions is not None
+def test_switch(self):
+    ifile = "/Users/elenalanigan/softeng/data/test.txt""
+    N, instructions = utils.parseFile(ifile)
+    assert N is not None
+    assert instructions is not None
         
         
