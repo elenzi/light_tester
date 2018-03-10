@@ -27,7 +27,6 @@ class LEDTester:
                 self.switch(self.command, self.start, self.end)
 
     def turnon(self, command, start, end):
-        #self.countTon = 0
         if self.command == "turn on":
             for i in range(int(self.start[0]),int(self.end[0])+1):
                 for j in range(int(self.start[1]),int(self.end[1])+1):

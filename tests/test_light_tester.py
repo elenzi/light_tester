@@ -26,9 +26,22 @@ def test_read_http():
     assert N == 1000
     assert instructions is not None
     
-# def testForLEDS():
-#     ifile = "/Users/elenalanigan/softeng/data/test.txt"
-#     N, instructions = led_tester.LEDtester(ifile)
-#     assert N == 1000
-#     assert instructions == ['turn on 0,0 through 9,9\n', 'turn off 0,0 through 9,9\n', 'switch 0,0 through 9,9\n', 'turn off 0,0 through 9,9\n', 'turn on 2,2 through 7,7']
+    def test_turn_on(self):
+        ifile = "/Users/elenalanigan/softeng/data/test.txt"
+        N, instructions = utils.parseFile(ifile)
+        assert N is not None
+        assert instructions is not None
 
+    def test_turn_off(self):
+        ifile = "/Users/elenalanigan/softeng/data/test.txt""
+        N, instructions = utils.parseFile(ifile)
+        assert N is not None
+        assert instructions is not None
+
+    def test_switch(self):
+        ifile = "/Users/elenalanigan/softeng/data/test.txt""
+        N, instructions = utils.parseFile(ifile)
+        assert N is not None
+        assert instructions is not None
+        
+        
